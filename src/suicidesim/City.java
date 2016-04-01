@@ -54,6 +54,9 @@ class City extends Environment {
     public void paintEnvironment(Graphics graphics) {
    graphics.setColor(Color.gray);
         graphics.fillRect(0, 50, 50, 1000000);
+        graphics.setColor(Color.CYAN);
+        graphics.fillRect(0, 100, 100, 1000000);
+        
     
     }
     
