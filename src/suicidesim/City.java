@@ -23,7 +23,7 @@ class City extends Environment {
     
     public City() {
     
-    this.setBackground(ResourceTools.loadImageFromResource("SuicideSim/building.png").getScaledInstance(1000, 750, Image.SCALE_SMOOTH));
+    this.setBackground(ResourceTools.loadImageFromResource("SuicideSim/cloud800a.jpg").getScaledInstance(1000, 750, Image.SCALE_SMOOTH));
     
     
     }
