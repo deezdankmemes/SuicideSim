@@ -7,6 +7,7 @@ package suicidesim;
 
 import environment.Environment;
 import images.ResourceTools;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -22,7 +23,7 @@ class City extends Environment {
     
     public City() {
     
-    this.setBackground(ResourceTools.loadImageFromResource("SuicideSim/suh.jpg").getScaledInstance(1000, 750, Image.SCALE_SMOOTH));
+    this.setBackground(ResourceTools.loadImageFromResource("SuicideSim/building.png").getScaledInstance(1000, 750, Image.SCALE_SMOOTH));
     
     
     }
@@ -51,6 +52,9 @@ class City extends Environment {
 
     @Override
     public void paintEnvironment(Graphics graphics) {
+   graphics.setColor(Color.gray);
+        graphics.fillRect(0, 50, 50, 1000000);
+    
     }
     
 }
