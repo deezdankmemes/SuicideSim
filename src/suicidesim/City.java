@@ -19,23 +19,32 @@ import java.awt.event.MouseEvent;
  */
 class City extends Environment {
 
-    
-    
-    public City() {
-    
-    this.setBackground(ResourceTools.loadImageFromResource("SuicideSim/cloud800a.jpg").getScaledInstance(1000, 750, Image.SCALE_SMOOTH));
-    
-    
+    Image clouds;
+    int speed = 3;
+
+    private void moveImages() {
+
+        getBackgroundImagePosition().y -= speed;
+
+        if (clouds != null) {
+            if (getBackgroundImagePosition().y < (-1 * clouds.getHeight(this))) {
+                getBackgroundImagePosition().y = 0;
+            }
+        }
     }
 
-    
-    
+    public City() {
+        setBackground(ResourceTools.loadImageFromResource("SuicideSim/clouds.jpg").getScaledInstance(1000, 750, Image.SCALE_SMOOTH));
+        clouds = ResourceTools.loadImageFromResource("SuicideSim/clouds.jpg").getScaledInstance(1000, 750, Image.SCALE_SMOOTH);
+    }
+
     @Override
     public void initializeEnvironment() {
     }
 
     @Override
     public void timerTaskHandler() {
+        moveImages();
     }
 
     @Override
@@ -52,12 +61,14 @@ class City extends Environment {
 
     @Override
     public void paintEnvironment(Graphics graphics) {
-   graphics.setColor(Color.gray);
+        if (clouds != null) {
+            graphics.drawImage(clouds, 0, this.getBackgroundImagePosition().y + clouds.getHeight(this), this);
+        }
+
+        graphics.setColor(Color.gray);
         graphics.fillRect(0, 50, 50, 1000000);
         graphics.setColor(Color.CYAN);
         graphics.fillRect(0, 100, 100, 1000000);
-        
-    
+
     }
-    
 }
